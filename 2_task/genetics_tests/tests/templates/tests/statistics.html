@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика тестов</title>
+</head>
+<body>
+    <h1>Статистика по видам животных</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Вид</th>
+                <th>Общее количество тестов</th>
+                <th>Средний выход молока</th>
+                <th>Максимальный выход молока</th>
+                <th>Процент здоровых животных</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in statistics %}
+            <tr>
+                <td>{{ stat.species }}</td>
+                <td>{{ stat.total_tests }}</td>
+                <td>{{ stat.avg_milk_yield }}</td>
+                <td>{{ stat.max_milk_yield }}</td>
+                <td>{{ stat.good_health_percentage|floatformat:2 }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
